@@ -7,12 +7,14 @@ describe "Anagrams" do
     file = "house"
     expect(classify_by_anagrams(file)).to eq("house")
   end
+  it "a file with 2 words with same letters but in different order it returns a file with those 2 words in the same line" do
+    file = "dog\ngod"
+    expect(classify_by_anagrams(file)).to eq("dog god")
+  end
 end
 
 def classify_by_anagrams(file)
-  if file.length > 0
-    "house"
-  else
-    ""
-  end
+  array_file = file.split("\n")
+  new_file = array_file.join("\s")
+  new_file
 end
